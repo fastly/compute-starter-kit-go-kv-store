@@ -1,0 +1,4 @@
+github.com/fastly/compute-sdk-go v0.1.1 h1:Kz4ggWOVMyoTdkTTbTgPgZ3RB2DKANIb+EWXRNs/eh0=
+github.com/fastly/compute-sdk-go v0.1.1/go.mod h1:Nsi7SyXNUrLdN0apygSKiFeUzJSpTrIu9iDemKA0Z3s=
+github.com/fastly/compute-sdk-go v0.1.2-0.20221103191248-f025472d98fc h1:i3I1EoyX2Z1EwVDCh0qZlBqp4PEhgV0rbpAuNhhESY8=
+github.com/fastly/compute-sdk-go v0.1.2-0.20221103191248-f025472d98fc/go.mod h1:Nsi7SyXNUrLdN0apygSKiFeUzJSpTrIu9iDemKA0Z3s=
