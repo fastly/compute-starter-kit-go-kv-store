@@ -5,22 +5,19 @@ authors = ["jchampion@fastly.com"]
 description = ""
 language = "go"
 manifest_version = 2
-name = "object-store-go-template"
+name = "object-store-go-starter-kit"
 service_id = ""
-
-[local_server]
-
-  [local_server.backends]
-
-  [local_server.object_store]
-
-    [[local_server.object_store.my-store]]
-      data = "placeholder"
-      key = "placeholder"
-
-    [[local_server.object_store.my-store]]
-      key = "readme"
-      path = "./README.md"
 
 [scripts]
   build = "tinygo build -target=wasi -gc=conservative -o bin/main.wasm ./"
+
+[local_server]
+[local_server.object_store]
+[[local_server.object_store.my-store]]
+  key = "readme"
+  path = "./README.md"
+
+[setup]
+[setup.object_stores]
+[setup.object_stores.my-store]
+  description = "My first object store"

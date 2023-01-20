@@ -24,7 +24,7 @@ The [Fastly CLI](https://developer.fastly.com/learning/tools/cli/) is available 
 Create a new Fastly Compute@Edge project using this template:
 
 ```shell
-fastly compute init --from https://github.com/fastly/object-store-go-template
+fastly compute init --from https://github.com/JakeChampion/object-store-go-template
 ```
 
 ### Run the application locally
@@ -41,60 +41,15 @@ The `fastly.toml` file has a section named `[local_server]` which contains the c
 
 ## Deploying the project to Fastly
 
-### Create an Object Store
+Note that Fastly Services have to have unique names within a Fastly Account.
 
-Object Stores have to have unique names within a Fastly Account.
-
-To create an Object Store we run the following command, replacing `<UNIQUE_STORE_NAME_GOES_HERE>` with the name for the new Object Store:
-
-```shell
-fastly objectstore create --name=<UNIQUE_STORE_NAME_GOES_HERE>
-```
-
-Make a note of the Object Store's ID, the ID can be found by listing the Object Stores:
-```shell
-fastly objectstore list | grep -A 3 '<UNIQUE_STORE_NAME_GOES_HERE>'
-```
-
-### Deploy Application to Fastly Service
-
-Note that Fastly Service have to have unique names within a Fastly Account.
-
-To create and deploy to a new Fastly Service run the command and following the instructions:
+To create and deploy to a new Fastly Service run the command and follow the instructions:
 
 ```shell
 fastly compute publish
 ```
 
-### Link Object Store with Fastly Service
-
-To use an Object Store within a Fastly Service, we need to link the two together. At this point, we can give the linked Object Store a more generic name for use within the Fastly Service.
-
-First we need to create a new version of our Fastly Service:
-
-```shell
-fastly service-version clone --version=latest
-```
-
-The command should respond with a message such as:
-```shell
-SUCCESS: Cloned service ovHQo6jnDPzsZW7hbAHKv3 version 1 to version 2
-```
-
-Make note of the Service ID and the new version. E.G. The message above has the Service ID `ovHQo6jnDPzsZW7hbAHKv3` and the new version is `2`.
-
-Now we can Link the Object Store with the Fastly Service by running this cURL command:
-
-```shell
-curl -i  -X POST "https://api.fastly.com/service/<$FASTLY_SERVICE_ID>/version/<$FASTLY_SERVICE_VERSION>/resource" -H "Fastly-Key: $(fastly profile token)" -H "Content-Type: application/x-www-form-urlencoded" -H "Accept: application/json" -d "name=my-store&resource_id=<$FASTLY_OBJECT_STORE_ID>"
-```
-
-The final step is to active the new version:
-```shell
-fastly service-version activate --version=2
-```
-
-That is it, we now can use the Object Store within the Fastly Service!
+That is it, we now have a Fastly Service, a Fastly Object Store and have them linked together!
 
 You can view real-time logs for the Fastly Service by running:
 ```shell

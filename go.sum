@@ -2,3 +2,5 @@ github.com/fastly/compute-sdk-go v0.1.1 h1:Kz4ggWOVMyoTdkTTbTgPgZ3RB2DKANIb+EWXR
 github.com/fastly/compute-sdk-go v0.1.1/go.mod h1:Nsi7SyXNUrLdN0apygSKiFeUzJSpTrIu9iDemKA0Z3s=
 github.com/fastly/compute-sdk-go v0.1.2-0.20221103191248-f025472d98fc h1:i3I1EoyX2Z1EwVDCh0qZlBqp4PEhgV0rbpAuNhhESY8=
 github.com/fastly/compute-sdk-go v0.1.2-0.20221103191248-f025472d98fc/go.mod h1:Nsi7SyXNUrLdN0apygSKiFeUzJSpTrIu9iDemKA0Z3s=
+github.com/fastly/compute-sdk-go v0.1.2-0.20230120205833-03174b637a48 h1:ciHQi0vXvDSHtdGg5RusS8Hx6PDekxmxgym5pN3Mb6I=
+github.com/fastly/compute-sdk-go v0.1.2-0.20230120205833-03174b637a48/go.mod h1:Nsi7SyXNUrLdN0apygSKiFeUzJSpTrIu9iDemKA0Z3s=
