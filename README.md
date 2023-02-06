@@ -1,43 +1,8 @@
-# Object Store Go Template
+# Compute Starter Kit Go Object Store
 
 Fastly Object Store is a globally consistent key-value storage accessible across the Fastly Network. This makes it possible for your Compute@Edge application to read and write from Object-stores. The application shows how to use Fastly Object Store within a Go Compute@Edge application.
 
 **For more details about other starter kits for Compute@Edge, see the [Fastly developer hub](https://developer.fastly.com/solutions/starters)**
-
-## Getting Started
-
-### Installing the Fastly CLI
-
-The [Fastly CLI](https://developer.fastly.com/learning/tools/cli/) is available for multiple operating systems.
-
-- **MacOS**: Install from Homebrew:
-
-    ```
-    brew install fastly/tap/fastly
-    ```
-
-- **Windows**: [Visit the GitHub repository](https://github.com/fastly/cli/releases/latest) to download the prebuilt binary for your architecture.
-- **Linux**: Packages are available for many distributions, along with prebuilt binaries. [Visit the GitHub repository](https://github.com/fastly/cli/releases/latest) to download the package for your distribution.
-
-### Initialise a new application
-
-Create a new Fastly Compute@Edge project using this template:
-
-```shell
-fastly compute init --from https://github.com/JakeChampion/object-store-go-template
-```
-
-### Run the application locally
-
-To run the application locally we only need to run one command:
-
-```shell
-fastly compute serve
-```
-
-The application should now be running on <http://127.0.0.1:7676>
-
-The `fastly.toml` file has a section named `[local_server]` which contains the configuration for Object Store when running locally.
 
 ## Deploying the project to Fastly
 
