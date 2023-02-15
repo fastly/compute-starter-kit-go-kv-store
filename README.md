@@ -30,7 +30,7 @@ fastly object-store-entry create --store-id=$FASTLY_OBJECT_STORE_ID --key-name=$
 
 For example, here is how you could add to the Object Store named `my-store` a key named `readme` whose value is the contents of `README.md`:
 ```shell
-fastly object-store-entry create --store-id="$(fastly objectstore list | grep -A 3 'my-store' | tail -n 1 | grep -o '[a-z0-9]*')" --key-name="readme" --value="$(cat README.md)"
+fastly object-store-entry create --store-id="$(fastly object-store list --json | jq -r '.Data[]|select(.Name=="my-store").ID')" --key-name="readme" --value="$(cat README.md)"
 ```
 
 ## Security issues
