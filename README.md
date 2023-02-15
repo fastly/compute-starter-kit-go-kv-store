@@ -25,12 +25,12 @@ fastly log-tail
 
 It is possible to add key-value pairs to an Object Store using the Fastly CLI like so:
 ```shell
-fastly objectstore insert --id=$FASTLY_OBJECT_STORE_ID --k=$KEY --v=$VALUE
+fastly object-store-entry create --store-id=$FASTLY_OBJECT_STORE_ID --key-name=$KEY --value=$VALUE
 ```
 
 For example, here is how you could add to the Object Store named `my-store` a key named `readme` whose value is the contents of `README.md`:
 ```shell
-fastly objectstore get --id="$(fastly objectstore list | grep -A 3 'my-store' | tail -n 1 | grep -o '[a-z0-9]*')" --k="readme" --v="$(cat README.md)"
+fastly object-store-entry create --store-id="$(fastly objectstore list | grep -A 3 'my-store' | tail -n 1 | grep -o '[a-z0-9]*')" --key-name="readme" --value="$(cat README.md)"
 ```
 
 ## Security issues
