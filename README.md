@@ -1,6 +1,6 @@
-# Compute Starter Kit Go Object Store
+# Compute Starter Kit Go KV Store
 
-Fastly Object Store is a globally consistent key-value storage accessible across the Fastly Network. This makes it possible for your Compute@Edge application to read and write from Object-stores. The application shows how to use Fastly Object Store within a Go Compute@Edge application.
+Fastly KV Store is a globally consistent key-value storage accessible across the Fastly Network. This makes it possible for your Compute@Edge application to read and write from KV-stores. The application shows how to use Fastly KV Store within a Go Compute@Edge application.
 
 **For more details about other starter kits for Compute@Edge, see the [Fastly developer hub](https://developer.fastly.com/solutions/starters)**
 
@@ -14,23 +14,23 @@ To create and deploy to a new Fastly Service run the command and follow the inst
 fastly compute publish
 ```
 
-That is it, we now have a Fastly Service, a Fastly Object Store and have them linked together!
+That is it, we now have a Fastly Service, a Fastly KV Store and have them linked together!
 
 You can view real-time logs for the Fastly Service by running:
 ```shell
 fastly log-tail
 ```
 
-## Adding entries to the Object Store
+## Adding entries to the KV Store
 
-It is possible to add key-value pairs to an Object Store using the Fastly CLI like so:
+It is possible to add key-value pairs to an KV Store using the Fastly CLI like so:
 ```shell
-fastly object-store-entry create --store-id=$FASTLY_OBJECT_STORE_ID --key-name=$KEY --value=$VALUE
+fastly kv-store-entry create --store-id=$FASTLY_KV_STORE_ID --key-name=$KEY --value=$VALUE
 ```
 
-For example, here is how you could add to the Object Store named `my-store` a key named `readme` whose value is the contents of `README.md`:
+For example, here is how you could add to the KV Store named `my-store` a key named `readme` whose value is the contents of `README.md`:
 ```shell
-fastly object-store-entry create --store-id="$(fastly object-store list --json | jq -r '.Data[]|select(.Name=="my-store").ID')" --key-name="readme" --value="$(cat README.md)"
+fastly kv-store-entry create --store-id="$(fastly kv-store list --json | jq -r '.Data[]|select(.Name=="my-store").ID')" --key-name="readme" --value="$(cat README.md)"
 ```
 
 ## Security issues
