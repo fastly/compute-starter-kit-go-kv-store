@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/fastly/compute-sdk-go/fsthttp"
-	"github.com/fastly/compute-sdk-go/objectstore"
+	"github.com/fastly/compute-sdk-go/kvstore"
 )
 
 // The entry point for your application.
@@ -19,11 +19,11 @@ import (
 func main() {
 	fsthttp.ServeFunc(func(ctx context.Context, w fsthttp.ResponseWriter, r *fsthttp.Request) {
 		/*
-			Create an ObjectStore instance which is connected to the Object Store named `my-store`
+			Create an KVStore instance which is connected to the KV Store named `my-store`
 
-			[Documentation for the objectstore open method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.2-0.20221103191248-f025472d98fc/objectstore#Open)
+			[Documentation for the kvstore open method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.4/kvstore#Open)
 		*/
-		store, err := objectstore.Open("my-store")
+		store, err := kvstore.Open("my-store")
 		if err != nil {
 			fsthttp.Error(w, err.Error(), fsthttp.StatusInternalServerError)
 			return
@@ -42,13 +42,13 @@ func main() {
 			return
 		}
 		/*
-			Adds or updates the key `hello` in the Object Store with the value `world`.
+			Adds or updates the key `hello` in the KV Store with the value `world`.
 
-			Note: Object stores are eventually consistent, this means that the updated value associated
+			Note: KV stores are eventually consistent, this means that the updated value associated
 			with the key may not be available to read from all edge locations immediately and some edge
 			locations may continue returning the previous value associated with the key.
 
-			[Documentation for the Insert method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.2-0.20221103191248-f025472d98fc/objectstore#Store.Insert)
+			[Documentation for the Insert method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.4/kvstore#Store.Insert)
 		*/
 
 		err = store.Insert("hello", strings.NewReader("world"))
@@ -59,9 +59,9 @@ func main() {
 		}
 
 		/*
-			Retrieve the value associated with the key `hello` in the Object Store.
+			Retrieve the value associated with the key `hello` in the KV Store.
 
-			[Documentation for the Lookup method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.2-0.20221103191248-f025472d98fc/objectstore#Store.Lookup)
+			[Documentation for the Lookup method can be found here](https://pkg.go.dev/github.com/fastly/compute-sdk-go@v0.1.4/kvstore#Store.Lookup)
 		*/
 		v, err := store.Lookup("hello")
 		if err != nil {
