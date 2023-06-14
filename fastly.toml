@@ -2,22 +2,22 @@
 # https://developer.fastly.com/reference/fastly-toml/
 
 authors = ["oss@fastly.com"]
-description = "A Go starter kit that uses Fastly's Object Store."
+description = "A Go starter kit that uses Fastly's KV Store."
 language = "go"
 manifest_version = 2
-name = "object-store-go-starter-kit"
+name = "kv-store-go-starter-kit"
 service_id = ""
 
 [scripts]
   build = "tinygo build -target=wasi -gc=conservative -o bin/main.wasm ./"
 
 [local_server]
-[local_server.object_store]
-[[local_server.object_store.my-store]]
+[local_server.kv_stores]
+[[local_server.kv_stores.my-store]]
   key = "readme"
   path = "./README.md"
 
 [setup]
-[setup.object_stores]
-[setup.object_stores.my-store]
-  description = "My first object store"
+[setup.kv_stores]
+[setup.kv_stores.my-store]
+  description = "My first kv store"
