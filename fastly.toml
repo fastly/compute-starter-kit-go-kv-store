@@ -10,6 +10,7 @@ service_id = ""
 
 [scripts]
   build = "tinygo build -target=wasi -gc=conservative -o bin/main.wasm ./"
+  post_init = "go get github.com/fastly/compute-sdk-go@latest"
 
 [local_server]
 [local_server.kv_stores]
